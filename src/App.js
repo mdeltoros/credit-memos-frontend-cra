@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { GlobalStyles, ThemeProvider, theme, Modal, Snackbar } from 'cs-reusable-component-library-exporter';
+import CreditMemos from './CreditMemos'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {  
+  constructor(props){
+    super(props)
+    this.state = {
+      modalSettings: false,
+      snackbarShow: false
+    };    
+  }
 
-export default App;
+  render(){ 
+    return (
+      <ThemeProvider theme = {theme}>
+        <React.Fragment>
+        <GlobalStyles/>          
+          <CreditMemos />
+        </React.Fragment>         
+      </ThemeProvider>
+    );  
+  }
+};
+
+export default App
